@@ -1,3 +1,4 @@
+import { myColors } from '@/styles/colors';
 import React, { ReactNode } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
@@ -20,14 +21,14 @@ const estilos = StyleSheet.create({
         width: 80,
         height: 80,
         borderRadius: 28,
-        backgroundColor: "#FFFFFF",
+        backgroundColor: myColors.white,
         justifyContent: "center",
         alignItems: "center",
         marginRight: 16
     },
     botaoTexto: {
         fontSize: 21,
-        color: "#000000"
+        color: myColors.black
     }
 });
 
