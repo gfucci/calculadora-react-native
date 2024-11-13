@@ -1,35 +1,43 @@
-import { myColors } from '@/styles/colors';
-import React, { ReactNode } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ThemeContext } from '@/context/ThemeContext';
+import { Styles } from '@/styles/global';
+import React, { useContext } from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 
 interface ButtonProps {
-    children: ReactNode;
+    title: string;
+    isBlue?: boolean;
+    isGray?: boolean
+    onPress: () => void;
 }
 
-const Button = ({children}: ButtonProps) => {
-  return (
-    <TouchableOpacity style={estilos.botao}>
-        <Text style={estilos.botaoTexto}>
-            { children }
-        </Text>
-    </TouchableOpacity>
-  )
-}
+const Button = ({title, isBlue, isGray, onPress}: ButtonProps) => {
+    const theme = useContext(ThemeContext);
 
-const estilos = StyleSheet.create({
-    botao: {
-        width: 80,
-        height: 80,
-        borderRadius: 28,
-        backgroundColor: myColors.white,
-        justifyContent: "center",
-        alignItems: "center",
-        marginRight: 16
-    },
-    botaoTexto: {
-        fontSize: 21,
-        color: myColors.black
-    }
-});
+    return (
+        <TouchableOpacity 
+            style={
+                isBlue 
+                ? Styles.botaoAzul
+                : isGray
+                ? Styles.botaoCinza
+                : theme === 'light'
+                ? Styles.botaoLight
+                : Styles.botaoDark 
+            }
+        >
+            <Text 
+                style={
+                    isBlue || isGray
+                    ? Styles.botaoTextoLight
+                    : theme === 'dark'
+                    ? Styles.botaoTextoLight
+                    : Styles.botaoTextoDark
+                }
+            >
+                { title }
+            </Text>
+        </TouchableOpacity>
+    )
+}
 
 export default Button

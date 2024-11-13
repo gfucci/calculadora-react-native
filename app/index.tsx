@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Keyboard from "@/components/Keyboard";
 import { ThemeContext } from "@/context/ThemeContext";
 import { myColors } from "@/styles/colors";
 import { useState } from "react";
@@ -18,41 +18,9 @@ export default function Index() {
           value={theme === 'dark'}
           onValueChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
         />
-        <View style={estilos.calculatorContainer}>
-          <View style={estilos.containerOperations}>
-            <Button>C</Button>
-            <Button>+/-</Button>
-            <Button>%</Button>
-            <Button>/</Button>
-          </View>
-          <View style={estilos.containerOperations}>
-            <Button>7</Button>
-            <Button>8</Button>
-            <Button>9</Button>
-            <Button>x</Button>
-          </View>
-          <View style={estilos.containerOperations}>
-            <Button>4</Button>
-            <Button>5</Button>
-            <Button>6</Button>
-            <Button>-</Button>
-          </View>
-          <View style={estilos.containerOperations}>
-            <Button>1</Button>
-            <Button>2</Button>
-            <Button>3</Button>
-            <Button>+</Button>
-          </View>
-          <View style={estilos.containerOperations}>
-            <Button>,</Button>
-            <Button>0</Button>
-            <Button>@</Button>
-            <Button>=</Button>
-          </View>
-        </View>
+        <Keyboard />
       </SafeAreaView>
     </ThemeContext.Provider>
-    
   );
 }
 
@@ -72,16 +40,5 @@ const estilos = StyleSheet.create({
     backgroundColor: myColors.black,
     alignItems: 'center',
     justifyContent: 'flex-start',
-  },
-  containerOperations: {
-    flexDirection: "row",
-    paddingVertical: 8
-  },
-  calculatorContainer: {
-    position: "absolute",
-    width: "100%",
-    height: "100%",
-    justifyContent: "flex-end",
-    padding: 18,
   }
 })

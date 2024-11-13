@@ -40,10 +40,10 @@ export const Styles = StyleSheet.create({
     },
     botaoTextoLight: {
         fontSize: 21,
-        color: myColors.black
+        color: myColors.white
     },
     botaoTextoDark: {
         fontSize: 21,
-        color: myColors.white
+        color: myColors.black
     }
 })
