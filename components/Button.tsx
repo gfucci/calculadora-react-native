@@ -24,6 +24,7 @@ const Button = ({title, isBlue, isGray, onPress}: ButtonProps) => {
                 ? Styles.botaoLight
                 : Styles.botaoDark 
             }
+            onPress={onPress}
         >
             <Text 
                 style={

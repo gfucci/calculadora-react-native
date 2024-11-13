@@ -18,7 +18,9 @@ export default function Index() {
           value={theme === 'dark'}
           onValueChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
         />
-        <Keyboard />
+        <View style={estilos.calculatorContainer}>
+          <Keyboard />
+        </View>
       </SafeAreaView>
     </ThemeContext.Provider>
   );
@@ -40,5 +42,12 @@ const estilos = StyleSheet.create({
     backgroundColor: myColors.black,
     alignItems: 'center',
     justifyContent: 'flex-start',
+  },
+  calculatorContainer: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    justifyContent: "flex-end",
+    padding: 18,
   }
 })
